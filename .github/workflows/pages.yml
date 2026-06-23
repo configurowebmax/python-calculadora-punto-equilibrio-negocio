@@ -1,0 +1,47 @@
+name: Deploy a GitHub Pages
+
+# =====================================================================
+#  Deploy automático a GitHub Pages en cada push a main.
+#  NO requiere secrets ni credenciales (hosting estático público).
+#
+#  URL pública resultante:
+#    https://configurowebmax.github.io/python-calculadora-punto-equilibrio-negocio/
+# =====================================================================
+
+on:
+  push:
+    branches: [main, master]
+  workflow_dispatch: # permite ejecutarlo a mano desde la pestaña Actions
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Evita deploys simultáneos que pisen el estado de Pages
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Configurar GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Subir artefacto estático
+        uses: actions/upload-pages-artifact@v3
+        with:
+          # Sube TODO el repo (index.html + app.py + assets)
+          path: '.'
+
+      - name: Desplegar a GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

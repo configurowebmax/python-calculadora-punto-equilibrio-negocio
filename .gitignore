@@ -1,0 +1,36 @@
+# Dependencias y caché
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Entornos virtuales
+venv/
+env/
+.venv/
+.env
+
+# Archivos locales sensibles (no subir a GitHub)
+config.local.*
+*.local
+secrets.*
+
+# IDEs y editores
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs y temporales
+*.log
+*.tmp
+*.bak
+
+# Build / cache de PyScript
+.pyscript/
+*.wasm.cache

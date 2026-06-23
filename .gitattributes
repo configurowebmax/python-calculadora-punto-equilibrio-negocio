@@ -1,0 +1,26 @@
+# Forzar alto porcentaje de Python en la badge de lenguaje de GitHub
+# (GitHub usa Linguist, que cuenta líneas por extensión)
+
+# CSS/JS propio marcado como "vendored" para que NO compita con Python
+assets/style.css linguist-vendored=true
+assets/script.js linguist-vendored=true
+assets/lib/** linguist-vendored=true
+assets/vendor/** linguist-vendored=true
+
+# Si usamos CSS/JS vía CDN desde el HTML, el HTML sigue contando poco
+# porque la mayor parte del código está en app.py
+
+# Normalizar finales de línea
+* text=auto eol=lf
+*.py text eol=lf
+*.html text eol=lf
+*.css text eol=lf
+*.js text eol=lf
+
+# Archivos binarios
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.svg text
