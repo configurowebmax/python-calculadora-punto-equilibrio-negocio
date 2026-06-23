@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Punto de Equilibrio para Negocios | Python · ConfiguroWeb</title>
+    <meta name="description" content="Calcula gratis el punto de equilibrio de tu negocio con Python ejecutándose en tu navegador. Conoce cuántas unidades debes vender para no perder ni ganar.">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Calculadora de Punto de Equilibrio · Python">
+    <meta property="og:description" content="Descubre cuántas unidades vender para cubrir costos. App 100% Python en el navegador.">
+    <meta property="og:type" content="website">
+
+    <!-- Estilos -->
+    <link rel="stylesheet" href="assets/style.css">
+
+    <!-- PyScript: Python en el navegador -->
+    <script type="module" src="https://pyscript.net/releases/2024.1.1/core.js"></script>
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <h1>🎯 Calculadora de Punto de Equilibrio</h1>
+            <p class="tagline">Descubre cuántas unidades debes vender para cubrir tus costos</p>
+        </div>
+    </header>
+
+    <main class="container">
+
+        <!-- Loader mientras carga Python -->
+        <div id="py-loader" class="loader">
+            <div class="spinner"></div>
+            <p>Cargando Python (PyScript)…</p>
+        </div>
+
+        <!-- App (oculta hasta que Python esté listo) -->
+        <section id="app" class="app-card hidden">
+
+            <div class="form-grid">
+                <div class="form-group">
+                    <label for="costos-fijos">💵 Costos fijos totales</label>
+                    <input type="number" id="costos-fijos" min="0" step="1" placeholder="Ej: 2000000">
+                    <small>Renta, salarios, servicios públicos…</small>
+                </div>
+
+                <div class="form-group">
+                    <label for="precio-unitario">🏷️ Precio de venta por unidad</label>
+                    <input type="number" id="precio-unitario" min="0" step="0.01" placeholder="Ej: 25000">
+                    <small>¿A cuánto vendes cada producto/servicio?</small>
+                </div>
+
+                <div class="form-group">
+                    <label for="costo-variable">⚙️ Costo variable por unidad</label>
+                    <input type="number" id="costo-variable" min="0" step="0.01" placeholder="Ej: 12000">
+                    <small>Materia prima, comisión, empaque…</small>
+                </div>
+            </div>
+
+            <div class="actions">
+                <button py-click="calcular_punto_equilibrio" class="btn btn-primary">
+                    📊 Calcular
+                </button>
+                <button py-click="guardar_datos" class="btn btn-secondary">
+                    💾 Guardar datos
+                </button>
+            </div>
+
+            <!-- Resultado principal -->
+            <div id="resultado" class="result-box hidden" role="status" aria-live="polite"></div>
+
+            <!-- Tabla de escenarios -->
+            <div id="escenarios" class="hidden">
+                <h2>📋 Escenarios de venta</h2>
+                <p class="result-detail">Qué pasa si vendes más o menos del punto de equilibrio:</p>
+                <div id="tabla-escenarios" class="table-wrap"></div>
+            </div>
+
+        </section>
+
+        <!-- Info / SEO -->
+        <section class="info-section">
+            <h2>¿Qué es el punto de equilibrio?</h2>
+            <p>
+                El <strong>punto de equilibrio</strong> es la cantidad mínima de unidades
+                que debes vender para que tus <em>ingresos</em> igualen a tus <em>costos totales</em>.
+                Por debajo de ese número pierdes dinero; por encima, ganas.
+            </p>
+            <h3>Fórmula</h3>
+            <pre class="formula">Punto de equilibrio (unidades) = Costos fijos / (Precio − Costo variable)</pre>
+            <p>
+                Esta app está construida con <strong>Python real</strong> ejecutándose en
+                tu navegador gracias a <a href="https://pyscript.net" target="_blank" rel="noopener">PyScript</a>.
+                Tus datos nunca salen de tu equipo: se guardan localmente.
+            </p>
+        </section>
+
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>
+                Hecho con 🐍 Python + PyScript por
+                <a href="https://configuroweb.com" target="_blank" rel="noopener">ConfiguroWeb</a>
+                · 2026
+            </p>
+        </div>
+    </footer>
+
+    <!-- Tu lógica en Python -->
+    <script type="py" src="app.py" async></script>
+
+    <!-- JS mínimo: oculta el loader cuando Python avisa que está listo -->
+    <script>
+        window.addEventListener('py:ready', () => {
+            document.getElementById('py-loader').classList.add('hidden');
+            document.getElementById('app').classList.remove('hidden');
+        });
+    </script>
+</body>
+</html>
