@@ -1,7 +1,6 @@
-# %%TITULO%% 🐍
+# Calculadora de Punto de Equilibrio 🐍
 
 [![Python](https://img.shields.io/badge/Python-100%25-3776AB?logo=python&logoColor=white)](https://www.python.org/)
-[![Deploy](https://github.com/configurowebmax/python-calculadora-punto-equilibrio-negocio/actions/workflows/pages.yml/badge.svg)](https://github.com/configurowebmax/python-calculadora-punto-equilibrio-negocio/actions)
 [![Live Demo](https://img.shields.io/badge/Demo-GitHub%20Pages-success?logo=github&logoColor=white)](https://configurowebmax.github.io/python-calculadora-punto-equilibrio-negocio/)
 [![License](https://img.shields.io/badge/Licencia-MIT-blue)](LICENSE)
 
@@ -32,7 +31,7 @@ No requiere instalación ni registro: la app corre **100% en tu navegador** con 
 
 **ConfiguroWeb**
 - 🌐 Web: [https://configuroweb.com](https://configuroweb.com)
-- 💼 LinkedIn: [/in/jmacuna78](https://www.linkedin.com/in/jmacuna78/)
+- 💼 LinkedIn: [/in/mauricio-sevilla](https://www.linkedin.com/in/mauricio-sevilla/)
 - 🐙 GitHub: [@configurowebmax](https://github.com/configurowebmax)
 
 ## 🔗 Sistemas relacionados
